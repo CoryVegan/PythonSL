@@ -25,13 +25,4 @@ print textwrap.fill(dedented_text,
 					initial_indent = '*',#悬挂前加项目符号
 					subsequent_indent=' ' * 4,
 					width=50,
-<<<<<<< HEAD
 					)
-=======
-					)
-					
-					
-					
-					
-	
->>>>>>> 295d2deb7b78b875f1834e0a733d553dada3df70
