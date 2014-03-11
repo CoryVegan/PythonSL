@@ -43,9 +43,6 @@ for match in re.finditer(pattern, text):
 	s = match.start()
 	e = match.end()
 	print 'Found "%s" at %d:%d' % (text[s:e], s, e)
-	
-#1.3.4模式语法
-print '\n1.3.4模式语法'	
 
 
 
