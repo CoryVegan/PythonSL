@@ -1,7 +1,10 @@
 # -*- coding: utf-8 -*-	
 #array模块定义了一个序列数据结构，和list相似，不过所有成员必须是相同的基本类型
 #2.2.1初始化
+<<<<<<< HEAD
 print '2.2.1初始化\n'
+=======
+>>>>>>> 4dea9305b7ddff0ae003fa8e220a577c0834f105
 import array
 import binascii
 s = 'This is the array.'
@@ -12,7 +15,10 @@ print 'As array :', a
 print 'As hex   :', binascii.hexlify(a)
 print
 #2.2.2处理数组
+<<<<<<< HEAD
 print '2.2.2处理数组\n'
+=======
+>>>>>>> 4dea9305b7ddff0ae003fa8e220a577c0834f105
 import array
 import pprint
 a = array.array('i', xrange(3))
@@ -24,7 +30,10 @@ print 'Iterator:'
 print list(enumerate(a))
 print
 #2.2.3数组与文件
+<<<<<<< HEAD
 print '2.2.3数组与文件\n'
+=======
+>>>>>>> 4dea9305b7ddff0ae003fa8e220a577c0834f105
 #可以使用高效读写文件的专用内置方法将数组的内容写入文件或从文件读入数组
 import array
 import binascii
@@ -44,6 +53,7 @@ with open(output.name, 'rb') as input:
 	a2 = array.array('i')
 	a2.fromfile(input, len(a))
 	print 'A2:', a2
+<<<<<<< HEAD
 #这个例子展示了直接从二进制文件读取原始数据，将它读入一个新的数组，并把字节转换为适当的类型
 print
 #2.2.4候选字节顺序
@@ -69,3 +79,6 @@ print fmt % ('A1 hex', 'A1', 'A2 hex', 'A2')
 print fmt % (('-' * 10,) * 4)
 for values in zip(to_hex(a1), a1, to_hex(a2), a2):
 	print fmt % values
+=======
+#这个例子展示了直接从二进制文件读取原始数据，将它读入一个新的数组，并把字节转换为适当的类型
+>>>>>>> 4dea9305b7ddff0ae003fa8e220a577c0834f105
