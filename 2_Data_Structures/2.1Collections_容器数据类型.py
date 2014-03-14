@@ -31,13 +31,13 @@ print
 
 #使用most_common()可以生成一个序列，其中包含n个最常遇到的输入值及其相应计数
 #这个粒子要统计系统字典里所有单词中出现的字母，来生成一个频度分布
-#c = collections.Counter()
-#with open('/usr/share/dict/words', 'rt') as f:
-#	for line in f:
-#		c.update(line.rstrip().lower())
-#print 'Most common:'
-#for letter, count in c.most_common(3):
-#	print '%s: %7d' % (letter, count)
+c = collections.Counter()
+with open('/usr/share/dict/words', 'rt') as f:
+	for line in f:
+		c.update(line.rstrip().lower())
+print 'Most common:'
+for letter, count in c.most_common(3):
+	print '%s: %7d' % (letter, count)
 #Counter()支持算数和集合操作来完成结果的聚集
 c1 = collections.Counter(['a', 'b', 'c', 'a', 'b', 'b'])
 c2 = collections.Counter('alphabet')
