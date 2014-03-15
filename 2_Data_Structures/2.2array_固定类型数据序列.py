@@ -81,4 +81,3 @@ for values in zip(to_hex(a1), a1, to_hex(a2), a2):
 	print fmt % values
 =======
 #这个例子展示了直接从二进制文件读取原始数据，将它读入一个新的数组，并把字节转换为适当的类型
->>>>>>> 4dea9305b7ddff0ae003fa8e220a577c0834f105
