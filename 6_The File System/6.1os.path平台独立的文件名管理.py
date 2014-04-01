@@ -150,5 +150,6 @@ with open('example/one/file.txt', 'wt') as f:
 	f.write('contents')
 with open('example/two.txt', 'wt') as f:
 	f.write('contents')
+	
 os.path.walk('example', visit, '(User data)')
 #这个例子会生成一个递归的目录列表，这里忽略了.svn目录
