@@ -110,3 +110,29 @@ msg = 'through stdin to stdout'
 stdout_value, stderr_value = proc.communicate(msg)
 print '\tcombined output:', repr(stdout_value)
 print '\tstderr value   :', repr(stderr_value)
+#10.1.3连接管道段
+print '\n10.1.3连接管道段'
+#多个命令可以连接为一个管线，即创建单独的一个Popen实例，把它们的输入和输出串联在一起。一个Popen实例的stdout属性用作管线中下一个Popen实例的stdin参数，而不是常量PIPE。输出从管线中最后一个命令的stdout句柄读取。
+subprocess.Popen('cd ..', shell=True)
+
+subprocess.call(['pwd'])
+cat = subprocess.Popen(['find', '.', '-name', '*.py'],
+                       stdout=subprocess.PIPE,
+                       )
+for line in cat.stdout:
+    print '\t', line.strip()
+grep = subprocess.Popen(['cut', '-d/',  '-f', '3'],
+                        stdin=cat.stdout,
+                        stdout=subprocess.PIPE,
+                        )
+for line in grep.stdout:
+    print '\t', line.strip()
+cut = subprocess.Popen(['grep', '2'],
+                       stdin=grep.stdout,
+                       stdout=subprocess.PIPE,
+                       )
+end_of_pipe = cut.stdout
+for line in end_of_pipe:
+    print '\t', line.strip()
+
+
