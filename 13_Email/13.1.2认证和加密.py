@@ -7,16 +7,17 @@ from email.mime.text import MIMEText
 import getpass
 # Prompt the user for connection info
 to_email = raw_input('Recipient: ') #收件邮箱
+from_email = raw_input('Author: ')
 servername = raw_input('Mail server name: ') #对于gmail是smtp.gmail.com
 username = raw_input('Mail username: ') #发件邮箱
 password = getpass.getpass("%s' s password: " % username) #密码
 
 #Create the message
-msg = MIMEText('Test message from PyMOTM.')
+msg = MIMEText('Hello World From Python!')
 msg.set_unixfrom('author')
 msg['To'] = email.utils.formataddr(('Recipient',to_email))
-msg['From'] = email.utils.formataddr(('Author','author@example.com'))
-msg['Subject'] = 'Test from PyMOTW'
+msg['From'] = email.utils.formataddr(('Author', from_email))
+msg['Subject'] = 'Test from Python'
 server = smtplib.SMTP(servername)
 try:
 	server.set_debuglevel('Ture')
@@ -27,7 +28,7 @@ try:
 		server.starttls()
 		server.ehlo() #reidentifu ourselves over TLS connection
 	server.login(username, password)
-	server.sendmail('author@example.com',
+	server.sendmail(from_email,
 					[to_email],
 					msg.as_string())
 finally:
